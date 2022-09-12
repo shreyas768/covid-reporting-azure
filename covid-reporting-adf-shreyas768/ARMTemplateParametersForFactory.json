@@ -13,6 +13,9 @@
 		},
 		"ls_adls_covid_reporting_shreyas768_dl_properties_typeProperties_url": {
 			"value": "https://covidreportingshreyas7dl.dfs.core.windows.net/"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/caa997b8-3b52-4ac4-a003-6bc33f642d73/resourceGroups/covid-reporting-shreyas/providers/Microsoft.Storage/storageAccounts/covidreportingshreyas768"
 		}
 	}
 }
