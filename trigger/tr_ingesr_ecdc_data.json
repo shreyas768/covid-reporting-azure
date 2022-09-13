@@ -1,0 +1,17 @@
+{
+	"name": "tr_ingesr_ecdc_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2022-09-13T09:05:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
