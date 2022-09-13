@@ -17,9 +17,6 @@
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseURL}"
 		},
-		"tr_ingest_population_data_properties_typeProperties_scope": {
-			"value": "/subscriptions/caa997b8-3b52-4ac4-a003-6bc33f642d73/resourceGroups/covid-reporting-shreyas/providers/Microsoft.Storage/storageAccounts/covidreportingshreyas768"
-		},
 		"containerUri": {
 			"value": ""
 		},
