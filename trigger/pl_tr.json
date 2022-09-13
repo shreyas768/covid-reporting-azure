@@ -1,0 +1,17 @@
+{
+	"name": "pl_tr",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2022-09-13T19:24:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
