@@ -1,5 +1,5 @@
 {
-	"name": "tr_ingesr_ecdc_data",
+	"name": "tr_ingest_ecdc_data",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -16,7 +16,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2022-09-13T09:06:00",
+				"startTime": "2022-09-13T09:07:00",
 				"timeZone": "India Standard Time"
 			}
 		}
