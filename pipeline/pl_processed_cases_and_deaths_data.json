@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "df_transform_cases_deaths",
+				"name": "pl_processed_cases_and_deaths_data",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
