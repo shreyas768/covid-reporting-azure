@@ -15,13 +15,7 @@
 			"value": "https://covidreportingshreyas7dl.dfs.core.windows.net/"
 		},
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com"
-		},
-		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sourceRelativeURL": {
-			"value": "cloudboxacademy/covid19/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_hospital_admissions_data_properties_pl_ingest_ecdc_data_parameters_sinkRelativeURL": {
-			"value": "hospital_admissions.csv"
+			"value": "@{linkedService().sourceBaseURL}"
 		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"value": "/subscriptions/caa997b8-3b52-4ac4-a003-6bc33f642d73/resourceGroups/covid-reporting-shreyas/providers/Microsoft.Storage/storageAccounts/covidreportingshreyas768"
