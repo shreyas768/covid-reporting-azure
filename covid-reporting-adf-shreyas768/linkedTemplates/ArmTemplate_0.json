@@ -1248,7 +1248,8 @@
 						"PivotWeekly sort(desc(reported_year_week, true),",
 						"     asc(country, true)) ~> SortWeekly",
 						"PivotDaily sort(desc(reported_date, true),",
-						"     asc(country, true)) ~> SortDaily",
+						"     asc(country, true),",
+						"     partitionBy('hash', 1)) ~> SortDaily",
 						"SortWeekly select(mapColumn(",
 						"          country,",
 						"          country_code_2_digit,",
@@ -1277,6 +1278,8 @@
 						"     skipDuplicateMapOutputs: true) ~> SelectDaily",
 						"SelectWeekly sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['hospital_admission_weekly.csv'],",
+						"     truncate: true,",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
@@ -1284,6 +1287,8 @@
 						"     skipDuplicateMapOutputs: true) ~> WeeklySink",
 						"SelectDaily sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['hospital_admission_daily.csv'],",
+						"     truncate: true,",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
@@ -1307,7 +1312,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "df_process_hospital_admission_data",
+						"name": "df_transform_hospital_admission_data",
 						"type": "ExecuteDataFlow",
 						"dependsOn": [],
 						"policy": {
