@@ -128,6 +128,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "ingest"
+		},
 		"annotations": []
 	}
 }
