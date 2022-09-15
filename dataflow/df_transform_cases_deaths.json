@@ -43,6 +43,9 @@
 				},
 				{
 					"name": "EditConfirmedCasesName"
+				},
+				{
+					"name": "EuropeOnly"
 				}
 			],
 			"scriptLines": [
@@ -72,7 +75,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     partitionBy('hash', 1)) ~> CountryLookup",
-				"CasesAndDeathsSource select(mapColumn(",
+				"EuropeOnly select(mapColumn(",
 				"          country,",
 				"          country_code,",
 				"          population,",
@@ -125,6 +128,8 @@
 				"     partitionBy('hash', 1),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> EditConfirmedCasesName",
+				"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code)),",
+				"     partitionBy('hash', 1)) ~> EuropeOnly",
 				"SelectForSink sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     truncate: true,",
