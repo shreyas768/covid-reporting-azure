@@ -73,7 +73,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> CountryLookup",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> CountryLookup",
 				"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code))) ~> FilterEuropeOnly",
 				"FilterEuropeOnly select(mapColumn(",
 				"          country,",
@@ -85,6 +86,7 @@
 				"          each(match(name=='date'),",
 				"               'reported'+'_date' = $$)",
 				"     ),",
+				"     partitionBy('hash', 1),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields",
 				"SelectOnlyRequiredFields pivot(groupBy(country,",
@@ -95,10 +97,12 @@
 				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
 				"     count = sum(daily_count),",
 				"     columnNaming: '$V_$N',",
-				"     lateral: true) ~> PivotCounts",
+				"     lateral: true,",
+				"     partitionBy('hash', 1)) ~> PivotCounts",
 				"EditConfirmedCasesName, CountryLookup lookup(EditConfirmedCasesName@country == CountryLookup@country,",
 				"     multiple: false,",
 				"     pickup: 'any',",
+				"     partitionBy('hash', 1),",
 				"     broadcast: 'auto')~> LookupCountry",
 				"LookupCountry select(mapColumn(",
 				"          country = EditConfirmedCasesName@country,",
@@ -110,6 +114,7 @@
 				"          reported_date,",
 				"          source",
 				"     ),",
+				"     partitionBy('hash', 1),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectForSink",
 				"PivotCounts select(mapColumn(",
@@ -121,6 +126,7 @@
 				"          confirmed_cases_count = {confirmed cases_count},",
 				"          deaths_count",
 				"     ),",
+				"     partitionBy('hash', 1),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> EditConfirmedCasesName",
 				"SelectForSink sink(allowSchemaDrift: true,",
@@ -130,7 +136,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> CasesAndDeathsSink"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> CasesAndDeathsSink"
 			]
 		}
 	}
