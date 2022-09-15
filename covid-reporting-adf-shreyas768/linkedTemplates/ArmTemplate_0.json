@@ -126,7 +126,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/covid/trans/transform_population_data"
+							"notebookPath": "/Repos/shreyasshukla777@gmail.com/covid-reporting-azure/az-databricks/trans/transform_population_data"
 						},
 						"linkedServiceName": {
 							"referenceName": "ls_db_covid_cluster",
