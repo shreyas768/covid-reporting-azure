@@ -528,9 +528,6 @@
 					],
 					"transformations": [
 						{
-							"name": "FilterEuropeOnly"
-						},
-						{
 							"name": "SelectOnlyRequiredFields"
 						},
 						{
@@ -573,9 +570,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     partitionBy('hash', 1)) ~> CountryLookup",
-						"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code)),",
-						"     partitionBy('hash', 1)) ~> FilterEuropeOnly",
-						"FilterEuropeOnly select(mapColumn(",
+						"CasesAndDeathsSource select(mapColumn(",
 						"          country,",
 						"          country_code,",
 						"          population,",
