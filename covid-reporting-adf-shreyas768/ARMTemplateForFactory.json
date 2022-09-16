@@ -633,10 +633,9 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE covid_reporting.hospital_admissions_daily;",
+								"preCopyScript": "TRUNCATE TABLE [covid_reporting].[hospital_admissions_daily] ;",
 								"writeBehavior": "insert",
 								"sqlWriterUseTableLock": false,
-								"tableOption": "autoCreate",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -1794,7 +1793,7 @@
 						"          country_code_3_digit,",
 						"          population,",
 						"          reported_date,",
-						"          {hospital occupancy_count} = {Daily hospital occupancy_count},",
+						"          hospital_occupancy_count = {Daily hospital occupancy_count},",
 						"          {ICU occupancy_count} = {Daily ICU occupancy_count},",
 						"          source",
 						"     ),",
