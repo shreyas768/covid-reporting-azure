@@ -29,10 +29,9 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE covid_reporting.hospital_admissions_daily;",
+						"preCopyScript": "TRUNCATE TABLE [covid_reporting].[hospital_admissions_daily] ;",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,

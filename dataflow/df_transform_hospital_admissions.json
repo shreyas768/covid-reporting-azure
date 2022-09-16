@@ -206,7 +206,7 @@
 				"          country_code_3_digit,",
 				"          population,",
 				"          reported_date,",
-				"          {hospital occupancy_count} = {Daily hospital occupancy_count},",
+				"          hospital_occupancy_count = {Daily hospital occupancy_count},",
 				"          {ICU occupancy_count} = {Daily ICU occupancy_count},",
 				"          source",
 				"     ),",
